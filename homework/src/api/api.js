@@ -1,13 +1,19 @@
 import * as axios from 'axios'
 
-const instance = axios.create({
-
-});
-
 export const API = {
-    getFilm(page) {
-        return instance.get(`https://api.themoviedb.org/3/discover/movie?page=${page}&api_key=b72c3ecf2c197208ad7fc0b3524c8ccc`)
-            // .then(res=>instance.get(`https://image.tmdb.org/t/p/w500${res.results[0].backdrop_path}`));
+    getFilm(page, genreId) {
+        return axios.get(`https://api.themoviedb.org/3/discover/movie?page=${page}&api_key=b72c3ecf2c197208ad7fc0b3524c8ccc&with_genres=${genreId}`)
+    },
+    getGenres() {
+        return axios.get(`http://api.themoviedb.org/3/genre/movie/list?api_key=b72c3ecf2c197208ad7fc0b3524c8ccc`).then(genres => {
+            return genres.data.genres
+        })
+    }
+};
+
+export const MovieAPI = {
+    getMovie(movieId) {
+        return axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=b72c3ecf2c197208ad7fc0b3524c8ccc&language=en-US`)
     }
 };
 

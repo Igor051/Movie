@@ -1,0 +1,19 @@
+.movieBlock {
+    text-decoration: none;
+    color: black;
+}
+
+.movieCard {
+    width: 400px;
+    background: #959494;
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    line-height: normal;
+    margin:0 30px 30px 30px
+}
+
+.movieCard img {
+    width: 400px
+}

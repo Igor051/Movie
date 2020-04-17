@@ -1,0 +1,41 @@
+.movieDescription {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width: 870px;
+}
+
+.movieImg {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.moviePage{
+    width: 100%;
+}
+
+.movieOverview{
+    font-size: 23px;
+}
+
+.releaseDate{
+    text-align: left;
+    margin-left: 10px;
+    color: #686767
+}
+
+.anotherInfo{
+    font-size: 17px;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.anotherInfo div {
+    margin-top: 12px;
+}
+
+.anotherInfo div div{
+    display: inline-block;
+    margin-right: 5px;
+    width: fit-content
+}

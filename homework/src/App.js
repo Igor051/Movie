@@ -4,7 +4,7 @@ import {Provider} from "react-redux";
 import store from "./Redux/store";
 import MoviesList from "./components/MoviesList";
 import {BrowserRouter, Route} from "react-router-dom";
-import Movie from "./components/Movie";
+import Movie from "./components/Movie/Movie";
 
 
 function App() {

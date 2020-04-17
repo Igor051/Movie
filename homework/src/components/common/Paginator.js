@@ -20,7 +20,7 @@ function Paginator({portionSize = 10, ...props}) {
             <div className={style.pages}>
                 {pages.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
                     .map(p => {
-                        return <span className={cn({[style.selectedPage]: props.currentPage === p}, style.pageNumber)}
+                        return <span key={p} className={cn({[style.selectedPage]: props.currentPage === p}, style.pageNumber)}
                                      onClick={() => {
                                          props.onPageChanged(p)
                                      }}>{p}

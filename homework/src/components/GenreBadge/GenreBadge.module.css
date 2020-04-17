@@ -1,0 +1,18 @@
+.genreItem {
+    display: inline-block;
+    margin-left: 13px;
+}
+
+.genreItem:hover {
+    display: inline-block;
+    margin-left: 13px;
+    cursor: pointer;
+}
+
+.genreList {
+    margin-top: 10px;
+}
+
+.activeGenre {
+    color: gold;
+}
