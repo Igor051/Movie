@@ -1,6 +1,6 @@
 import React from "react";
 import {compose} from "redux";
-import {withRouter} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {getMoviePage} from "../../Redux/MoviePageReducer";
 import StarRatings from "react-star-ratings";
@@ -37,7 +37,11 @@ class Movie extends React.Component {
                     <div><b>Genres: </b>{this.props.movie.genres.map(genre => <div
                         key={genre.id}>{genre.name},</div>)}</div>
                     <div><b>Run time: </b>{this.props.movie.runtime} min</div>
-                    <div><a href={this.props.movie.homepage}>Movie Home page</a></div>
+                    <div className={cn({[style.linkDark]: this.props.darkTheme}, style.links)}><a
+                        href={this.props.movie.homepage}>Movie Home page</a></div>
+                    <NavLink to={'/'} className={cn({[style.linkDark]: this.props.darkTheme}, style.links)}>
+                        Go to Home Page
+                    </NavLink>
                 </div>
             </div>
 

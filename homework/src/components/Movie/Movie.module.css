@@ -44,3 +44,21 @@
     background: #050044;
     color: wheat;
 }
+
+.links{
+    text-decoration: none;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.links a{
+    text-decoration: none;
+    color: black;
+}
+
+.linkDark a{
+    color: wheat;
+}
+.linkDark{
+    color: wheat;
+}
