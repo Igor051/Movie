@@ -39,3 +39,8 @@
     margin-right: 5px;
     width: fit-content
 }
+
+.darkTheme{
+    background: #050044;
+    color: wheat;
+}

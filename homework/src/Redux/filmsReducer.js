@@ -5,6 +5,7 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_FILM_ID = 'SET_FILM_ID';
 const SET_GENRE = 'SET_GENRE';
 const SET_GENRES = 'SET_GENRES';
+const CHANGE_THEME = 'CHANGE_THEME';
 
 let initialState = {
     films: {data: {page: null, results: []}},
@@ -23,7 +24,8 @@ let initialState = {
         id: 10770,
         name: "TV Movie"
     }, {id: 53, name: "Thriller"}, {id: 10752, name: "War"}, {id: 37, name: "Western"}],
-    activeGenre: 28
+    activeGenre: 28,
+    darkTheme: false
 };
 
 
@@ -44,6 +46,9 @@ const filmsReducer = (state = initialState, action) => {
         case SET_GENRES: {
             return {...state, genres: action.genres}
         }
+        case CHANGE_THEME: {
+            return {...state, darkTheme: !action.darkTheme}
+        }
         default:
             return state
     }
@@ -54,11 +59,16 @@ const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage}
 const setFilmAC = (film) => ({type: SET_FILM_ID, film});
 const setGenreAC = (genreId) => ({type: SET_GENRE, genreId});
 const setGenres = (genres) => ({type: SET_GENRES, genres});
+const changeThemeAC = (darkTheme) => ({type: CHANGE_THEME, darkTheme});
 
 export const getFilms = (page) => async (dispatch, getState) => {
-    let films = await API.getFilm(page, getState().filmsPage.activeGenre);
-    dispatch(setFilmsAC(films));
-    dispatch(setCurrentPageAC(page))
+    try {
+        let films = await API.getFilm(page, getState().filmsPage.activeGenre);
+        dispatch(setFilmsAC(films));
+        dispatch(setCurrentPageAC(page))
+    } catch (e) {
+    }
+
 };
 
 export const setFilm = (film) => (dispatch) => {
@@ -66,14 +76,26 @@ export const setFilm = (film) => (dispatch) => {
 };
 
 export const getFilmsForGenre = (genreId) => async (dispatch, getState) => {
-    let films = await API.getFilm(getState().filmsPage.currentPage, genreId);
-    dispatch(setFilmsAC(films));
-    dispatch(setGenreAC(genreId))
+    try {
+        let films = await API.getFilm(getState().filmsPage.currentPage, genreId);
+        dispatch(setFilmsAC(films));
+        dispatch(setGenreAC(genreId))
+    } catch (e) {
+    }
+
 };
 
 export const getGenres = () => async (dispatch) => {
-    let genres = await API.getGenres();
-    dispatch(setGenres(genres))
+    try {
+        let genres = await API.getGenres();
+        dispatch(setGenres(genres))
+    } catch (e) {
+    }
+
+};
+
+export const changeTheme = (darkTheme) => (dispatch) => {
+    dispatch(changeThemeAC(darkTheme))
 };
 
 export default filmsReducer

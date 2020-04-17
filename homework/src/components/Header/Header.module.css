@@ -1,0 +1,23 @@
+.darkTheme {
+    background: #050044;
+}
+
+.header {
+    padding-bottom: 10px;
+    position: relative;
+    height: 100px;
+}
+
+.userInfo {
+    display: inline-block;
+}
+
+.userInfo div img {
+    width: 50px;
+    height: 50px;
+}
+
+.userInfo div {
+    display: inline-block;
+    margin: 20px 0 0 30px
+}

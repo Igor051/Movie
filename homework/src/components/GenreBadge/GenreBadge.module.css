@@ -10,7 +10,11 @@
 }
 
 .genreList {
-    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.darkTheme{
+    color: #c52926
 }
 
 .activeGenre {

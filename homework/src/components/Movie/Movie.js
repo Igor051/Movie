@@ -5,6 +5,9 @@ import {connect} from "react-redux";
 import {getMoviePage} from "../../Redux/MoviePageReducer";
 import StarRatings from "react-star-ratings";
 import style from './Movie.module.css'
+import cn from 'classnames'
+import Switcher from "../common/Switcher";
+import {changeTheme} from "../../Redux/filmsReducer";
 
 class Movie extends React.Component {
     componentDidMount() {
@@ -12,9 +15,9 @@ class Movie extends React.Component {
     }
 
     render() {
-        return <div className={style.moviePage}>
+        return <div className={cn({[style.darkTheme]: this.props.darkTheme}, style.moviePage)}>
             <div className={style.movieImg}><img src={`https://image.tmdb.org/t/p/w500${this.props.movie.poster_path}`}
-                                                 alt=""/></div>
+                                                 alt="poster"/></div>
             <div className={style.movieDescription}>
                 <h2>{this.props.movie.title}</h2>
                 <StarRatings
@@ -37,15 +40,17 @@ class Movie extends React.Component {
                     <div><a href={this.props.movie.homepage}>Movie Home page</a></div>
                 </div>
             </div>
+
         </div>
     }
 }
 
 let mapStateToProps = (state) => ({
-    movie: state.moviePage.movie
+    movie: state.moviePage.movie,
+    darkTheme: state.filmsPage.darkTheme
 });
 
 export default compose(
-    connect(mapStateToProps, {getMoviePage}),
+    connect(mapStateToProps, {getMoviePage, changeTheme}),
     withRouter
 )(Movie)

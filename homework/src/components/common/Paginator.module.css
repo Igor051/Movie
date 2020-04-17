@@ -8,6 +8,10 @@
     border: 1px solid black;
 }
 
+.pageNumber:hover {
+   cursor: pointer;
+}
+
 .pages {
     display: inline-block;
 }
@@ -20,8 +24,18 @@
     outline: none;
 }
 
-.paginator  button{
+.paginator button {
     color: white;
     background-color: black;
     border-radius: 50px;
+}
+
+.darkTheme {
+    color: red;
+    border: 1px solid #760a0e ;
+}
+
+.darkAndSelected {
+    color: goldenrod;
+    border: 1px solid goldenrod;
 }
