@@ -12,6 +12,7 @@ const Header = (props) => {
         <div className={style.userInfo}>
             <div><img src={userIcon} alt="userIcon"/></div>
         </div>
+        <div className={style.name}>Igor Snigur</div>
     </div>
 };
 

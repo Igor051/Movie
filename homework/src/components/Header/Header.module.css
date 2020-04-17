@@ -1,15 +1,18 @@
 .darkTheme {
     background: #050044;
+    color: #c52926
 }
 
 .header {
     padding-bottom: 10px;
-    position: relative;
-    height: 100px;
+    height: 90px;
+    padding-top: 20px;
 }
 
 .userInfo {
     display: inline-block;
+    vertical-align: bottom;
+    margin-left: 1100px;
 }
 
 .userInfo div img {
@@ -19,5 +22,8 @@
 
 .userInfo div {
     display: inline-block;
-    margin: 20px 0 0 30px
+}
+
+.name{
+    display: inline-block;
 }
