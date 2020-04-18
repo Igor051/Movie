@@ -12,7 +12,7 @@
 .userInfo {
     display: inline-block;
     vertical-align: bottom;
-    margin-left: 1100px;
+    margin-left: 500px;
 }
 
 .userInfo div img {
@@ -26,4 +26,9 @@
 
 .name{
     display: inline-block;
+}
+
+.input{
+    display: inline-block;
+    margin-left: 600px;
 }
