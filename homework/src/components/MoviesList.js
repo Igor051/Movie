@@ -1,11 +1,10 @@
 import React from "react";
 import {connect} from "react-redux";
-import {changeTheme, getFilms, getFilmsForGenre, getGenres, setFilm} from "../Redux/filmsReducer";
+import {getFilms, getFilmsForGenre, getGenres, setFilm} from "../Redux/filmsReducer";
 import MoviesListCard from "./MoviesListCard/MoviesListCard";
 import Paginator from "./common/Paginator";
 import style from './MoviesList.module.css'
 import GenreBadge from "./GenreBadge/GenreBadge";
-import Header from "./Header/Header";
 import cn from 'classnames'
 
 class MoviesList extends React.Component {

@@ -6,10 +6,12 @@ import cn from 'classnames'
 import style from './Header.module.css'
 import userIcon from '../../assets/userIcon.png'
 import InputForm from "./Input";
+import {compose} from "redux";
+import {withRouter} from "react-router-dom";
 
 const Header = (props) => {
     const onSubmit = (formData) => {
-        props.searchByTitle(formData.filmQuery)
+        props.searchByTitle(formData.filmQuery);
     };
     return <div className={cn({[style.darkTheme]: props.darkTheme}, style.header)}>
         <Switcher changeTheme={props.changeTheme} darkTheme={props.darkTheme}/>
@@ -27,4 +29,4 @@ let mapStateToProps = (state) => ({
     darkTheme: state.filmsPage.darkTheme
 });
 
-export default connect(mapStateToProps, {changeTheme, searchByTitle})(Header)
+export default compose(connect(mapStateToProps, {changeTheme, searchByTitle}), withRouter)(Header)

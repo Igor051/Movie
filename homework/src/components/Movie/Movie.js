@@ -6,7 +6,6 @@ import {getMoviePage} from "../../Redux/MoviePageReducer";
 import StarRatings from "react-star-ratings";
 import style from './Movie.module.css'
 import cn from 'classnames'
-import Switcher from "../common/Switcher";
 import {changeTheme} from "../../Redux/filmsReducer";
 
 class Movie extends React.Component {
