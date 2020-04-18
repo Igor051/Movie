@@ -70,14 +70,14 @@ const setTitle = (title) => ({type: SET_TITLE, title});
 export const getFilms = (page) => async (dispatch, getState) => {
     try {
         if (getState().filmsPage.title) {
-            let films = await API.getByAll(page, getState().filmsPage.activeGenre, getState().filmsPage.title)
+            let films = await API.getByAll(page, getState().filmsPage.activeGenre, getState().filmsPage.title);
             dispatch(setFilmsAC(films));
-            dispatch(setCurrentPageAC(page))
+
         } else {
             let films = await API.getFilm(page, getState().filmsPage.activeGenre);
             dispatch(setFilmsAC(films));
-            dispatch(setCurrentPageAC(page))
         }
+        dispatch(setCurrentPageAC(page))
 
     } catch (e) {
     }
@@ -93,12 +93,11 @@ export const getFilmsForGenre = (genreId) => async (dispatch, getState) => {
         if (getState().filmsPage.title) {
             let films = await API.getByAll(getState().filmsPage.currentPage, genreId, getState().filmsPage.title);
             dispatch(setFilmsAC(films));
-            dispatch(setGenreAC(genreId))
         } else {
             let films = await API.getFilm(getState().filmsPage.currentPage, genreId);
             dispatch(setFilmsAC(films));
-            dispatch(setGenreAC(genreId))
         }
+        dispatch(setGenreAC(genreId))
 
     } catch (e) {
     }
@@ -122,13 +121,13 @@ export const searchByTitle = (title) => async (dispatch, getState) => {
     if (title) {
         let films = await API.getByTitle(title);
         dispatch(setFilmsAC(films));
-        dispatch(setTitle(title))
+        dispatch(setTitle(title));
+        dispatch(setCurrentPageAC(1))
     } else {
         let films = await API.getFilm(getState().filmsPage.currentPage, getState().filmsPage.activeGenre);
         dispatch(setFilmsAC(films));
         dispatch(setTitle(''))
     }
-
 };
 
 export default filmsReducer
